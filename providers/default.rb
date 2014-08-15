@@ -78,6 +78,7 @@ action :create do
     )
     restart_on_update node[:jackal][:enabled][new_resource.service_name]
     default_logger true
+    notifies :create, "ruby_block[set enabled #{new_resource.service_name}]"
   end
 
   service "#{service_name} restarter" do
@@ -88,7 +89,13 @@ action :create do
     subscribes :restart, "file[#{configuration_file}]"
   end
 
-  node.set[:jackal][:enabled][new_resource.service_name] = true
+  ruby_block "set enabled #{new_resource.service_name}" do
+    block do
+      node.set[:jackal][:enabled][new_resource.service_name] = true
+    end
+    action :nothing
+    not_if{ node[:jackal][:enabled][new_resource.service_name] }
+  end
 
 end
 
