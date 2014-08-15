@@ -72,7 +72,7 @@ action :create do
   runit_service service_name do
     run_template_name 'jackal'
     options(
-      :config_path => configuration_file,
+      :config_path => configuration_directory,
       :exec => ::File.join(node[:jackal][:exec_dir], 'jackal'),
       :user => new_resource.user
     )
