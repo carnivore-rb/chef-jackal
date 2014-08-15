@@ -1,5 +1,5 @@
 name 'jackal'
-version '0.1.1'
+version '0.1.2'
 maintainer 'Chris Roberts'
 maintainer_email 'chris@hw-ops.com'
 license 'Apache 2.0'
