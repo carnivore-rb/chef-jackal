@@ -17,6 +17,7 @@ jackal 'stuff-doer' do
   gem_packages ['nokogiri']
   system_packages ['libxslt-dev']
 end
+```
 
 This will generate the required configuration, install required
 gems and packages, configure the service (via runit) and start
