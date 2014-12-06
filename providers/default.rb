@@ -73,7 +73,7 @@ action :create do
     run_template_name 'jackal'
     options(
       :config_path => configuration_directory,
-      :exec => ::File.join(node[:jackal][:exec_dir], 'jackal'),
+      :exec => ::File.join(node[:jackal][:exec_dir], node[:jackal][:exec_name]),
       :user => new_resource.user
     )
     restart_on_update node[:jackal][:enabled][new_resource.service_name]

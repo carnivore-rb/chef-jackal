@@ -6,4 +6,5 @@ default[:jackal][:user][:home] = '/home/jackal'
 default[:jackal][:apps] = Mash.new
 
 default[:jackal][:exec_dir] = node[:languages][:ruby][:bin_dir]
+default[:jackal][:exec_name] = 'jackal'
 default[:jackal][:enabled] = Mash.new
